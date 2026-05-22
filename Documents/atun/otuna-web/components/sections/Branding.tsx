@@ -1,5 +1,24 @@
-import Image from "next/image"
+"use client"
+
 import { BRANDING_BASES } from "@/lib/data"
+import BeforeAfterSlider from "@/components/ui/BeforeAfterSlider"
+
+const VARIANTES = [
+  {
+    label: "LOMITOS EN AGUA",
+    beforeSrc: "/images/lata-antigua.png",
+    afterSrc: "/images/nuevas/latasolanuevas.png",
+    beforeAlt: "Lata Otuna en Agua — diseño anterior",
+    afterAlt: "Lata Otuna en Agua — nuevo diseño",
+  },
+  {
+    label: "LOMITOS EN ACEITE DE GIRASOL",
+    beforeSrc: "/images/aceiteantiguo.png",
+    afterSrc: "/images/nuevas/lataaceitenueva.png",
+    beforeAlt: "Lata Otuna en Aceite de Girasol — diseño anterior",
+    afterAlt: "Lata Otuna en Aceite de Girasol — nuevo diseño",
+  },
+]
 
 export default function Branding() {
   return (
@@ -102,7 +121,7 @@ export default function Branding() {
         ))}
       </div>
 
-      {/* Antes / Después — dos variantes */}
+      {/* Sliders antes/después */}
       <div
         style={{
           maxWidth: "900px",
@@ -112,24 +131,8 @@ export default function Branding() {
           gap: "48px",
         }}
       >
-        {[
-          {
-            variante: "LOMITOS EN AGUA",
-            antesImg: "/images/lata-antigua.png",
-            antesAlt: "Lata Otuna en Agua — diseño anterior",
-            despuesImg: "/images/nuevas/aguanuevo.jpeg",
-            despuesAlt: "Lata Otuna en Agua — nuevo diseño",
-          },
-          {
-            variante: "LOMITOS EN ACEITE DE GIRASOL",
-            antesImg: "/images/aceiteantiguo.png",
-            antesAlt: "Lata Otuna en Aceite de Girasol — diseño anterior",
-            despuesImg: "/images/nuevas/aceitenuevo.jpeg",
-            despuesAlt: "Lata Otuna en Aceite de Girasol — nuevo diseño",
-          },
-        ].map((fila) => (
-          <div key={fila.variante}>
-            {/* Nombre de variante */}
+        {VARIANTES.map((v) => (
+          <div key={v.label}>
             <p
               style={{
                 fontFamily: "var(--font-anton, Impact, sans-serif)",
@@ -141,92 +144,14 @@ export default function Branding() {
                 marginBottom: "20px",
               }}
             >
-              {fila.variante}
+              {v.label}
             </p>
-
-            {/* Fila antes → después */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr auto 1fr",
-                gap: "24px",
-                alignItems: "center",
-              }}
-            >
-              {/* Antes */}
-              <div style={{ textAlign: "center" }}>
-                <p
-                  style={{
-                    fontFamily: "var(--font-anton, Impact, sans-serif)",
-                    fontSize: "11px",
-                    color: "rgba(255,255,255,0.4)",
-                    letterSpacing: "3px",
-                    textTransform: "uppercase",
-                    marginBottom: "16px",
-                  }}
-                >
-                  ANTES
-                </p>
-                <div
-                  style={{
-                    height: "240px",
-                    backgroundColor: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "16px",
-                    position: "relative",
-                  }}
-                >
-                  <Image
-                    src={fila.antesImg}
-                    alt={fila.antesAlt}
-                    fill
-                    style={{ objectFit: "contain", padding: "16px" }}
-                  />
-                </div>
-              </div>
-
-              {/* Flecha */}
-              <div style={{ color: "#E8B84B", fontSize: "28px", lineHeight: 1 }}>→</div>
-
-              {/* Después */}
-              <div style={{ textAlign: "center" }}>
-                <p
-                  style={{
-                    fontFamily: "var(--font-anton, Impact, sans-serif)",
-                    fontSize: "11px",
-                    color: "#E8B84B",
-                    letterSpacing: "3px",
-                    textTransform: "uppercase",
-                    marginBottom: "16px",
-                  }}
-                >
-                  DESPUÉS
-                </p>
-                <div
-                  style={{
-                    height: "240px",
-                    backgroundColor: "rgba(26,74,154,0.25)",
-                    border: "1px solid #E8B84B",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "relative",
-                  }}
-                >
-                  <Image
-                    src={fila.despuesImg}
-                    alt={fila.despuesAlt}
-                    fill
-                    style={{ objectFit: "contain", padding: "16px" }}
-                  />
-                </div>
-              </div>
-            </div>
+            <BeforeAfterSlider
+              beforeSrc={v.beforeSrc}
+              afterSrc={v.afterSrc}
+              beforeAlt={v.beforeAlt}
+              afterAlt={v.afterAlt}
+            />
           </div>
         ))}
       </div>
