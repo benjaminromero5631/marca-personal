@@ -50,7 +50,7 @@ export default function Hero() {
           style={{ width: "100%", height: "100%" }}
         >
           <Image
-            src="/images/lata-antigua.png"
+            src="/images/lata-antigua-nobg.png"
             alt="Lata Otuna decorativa"
             fill
             style={{ objectFit: "contain" }}
@@ -89,7 +89,7 @@ export default function Hero() {
         >
           PURO
           <Image
-            src="/images/lata-antigua.png"
+            src="/images/lata-antigua-nobg.png"
             alt="Lata Otuna en Agua"
             width={140}
             height={140}
