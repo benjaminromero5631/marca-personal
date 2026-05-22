@@ -47,7 +47,7 @@ export default function BeforeAfterSlider({ beforeSrc, afterSrc, beforeAlt, afte
       <div style={{ ...LABEL_BASE, right: "14px", color: "#E8B84B" }}>DESPUÉS</div>
 
       <ReactCompareSlider
-        defaultPosition={40}
+        defaultPosition={100}
         style={CARD_STYLE}
         handle={
           <ReactCompareSliderHandle
