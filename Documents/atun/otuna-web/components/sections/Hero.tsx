@@ -103,21 +103,13 @@ export default function Hero() {
           ATÚN
         </motion.span>
 
-        <motion.span
-          style={HEADLINE_STYLE}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-        >
-          DESDE 1980
-        </motion.span>
       </div>
 
       {/* Subtítulo */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
         style={{
           fontFamily: "var(--font-dm-sans, system-ui)",
           fontSize: "13px",
