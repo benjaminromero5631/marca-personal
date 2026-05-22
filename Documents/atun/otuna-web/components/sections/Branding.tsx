@@ -6,15 +6,15 @@ import BeforeAfterSlider from "@/components/ui/BeforeAfterSlider"
 const VARIANTES = [
   {
     label: "LOMITOS EN AGUA",
-    beforeSrc: "/images/lata-antigua.png",
-    afterSrc: "/images/nuevas/latasolanuevas.png",
+    beforeSrc: "/images/lata-antigua-nobg.png",
+    afterSrc: "/images/latasolanuevas-nobg.png",
     beforeAlt: "Lata Otuna en Agua — diseño anterior",
     afterAlt: "Lata Otuna en Agua — nuevo diseño",
   },
   {
     label: "LOMITOS EN ACEITE DE GIRASOL",
-    beforeSrc: "/images/aceiteantiguo.png",
-    afterSrc: "/images/nuevas/lataaceitenueva.png",
+    beforeSrc: "/images/aceiteantiguo-nobg.png",
+    afterSrc: "/images/lataaceitenueva-nobg.png",
     beforeAlt: "Lata Otuna en Aceite de Girasol — diseño anterior",
     afterAlt: "Lata Otuna en Aceite de Girasol — nuevo diseño",
   },

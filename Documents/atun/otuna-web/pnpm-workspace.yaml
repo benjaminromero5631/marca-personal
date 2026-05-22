@@ -1,3 +1,4 @@
 allowBuilds:
+  onnxruntime-node: true
   sharp: true
   unrs-resolver: true
