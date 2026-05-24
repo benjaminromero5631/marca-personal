@@ -24,13 +24,11 @@ export default function ComoFunciona() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
-          }
-        }),
-      { threshold: 0.12 }
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting)
+          e.target.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+      }),
+      { threshold: 0.1 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -39,112 +37,147 @@ export default function ComoFunciona() {
   return (
     <section
       id="asesoria"
-      className="overflow-hidden"
-      style={{ background: "var(--navy)", padding: "8rem 0 7rem" }}
+      style={{ background: "var(--navy)", padding: "5rem 0" }}
       ref={sectionRef}
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
 
         {/* Header */}
-        <div className="mb-16 reveal stagger-1">
-          <p className="font-body text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--gold)" }}>
+        <div className="mb-10 reveal stagger-1">
+          <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--gold)" }}>
             Simple y claro
           </p>
           <h2
             className="font-display font-bold text-white"
-            style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", lineHeight: 1.15 }}
+            style={{ fontSize: "clamp(1.8rem, 6vw, 2.8rem)", lineHeight: 1.1 }}
           >
             Cómo funciona la asesoría
           </h2>
         </div>
 
-        {/* Timeline horizontal */}
-        <div className="relative">
-          {/* Linea dorada conectora — solo desktop */}
-          <div
-            className="hidden md:block absolute left-0 right-0"
-            style={{
-              height: "1px",
-              background: "linear-gradient(90deg, rgba(201,169,110,0.6), rgba(201,169,110,0.3), rgba(201,169,110,0.6))",
-              top: "2.2rem",
-            }}
-            aria-hidden="true"
-          />
-
-          <div className="grid md:grid-cols-3 gap-10 md:gap-6">
+        {/* MÓVIL — pasos verticales con línea conectora */}
+        <div className="md:hidden">
+          <div style={{ borderLeft: "1px solid rgba(201,169,110,0.28)", paddingLeft: "1.5rem", marginLeft: "0.3rem" }}>
             {pasos.map((p, i) => (
               <div
                 key={p.num}
                 className={`reveal stagger-${i + 1} relative`}
+                style={{ paddingBottom: i < pasos.length - 1 ? "2.5rem" : "0" }}
               >
-                {/* Punto de conexion en la linea */}
+                {/* Punto en la línea */}
                 <div
-                  className="hidden md:block w-2 h-2 rounded-full mb-8 relative z-10"
-                  style={{ background: "var(--gold)" }}
+                  className="absolute"
+                  style={{
+                    width: "10px",
+                    height: "10px",
+                    borderRadius: "50%",
+                    background: "var(--gold)",
+                    left: "-1.9rem",
+                    top: "0.6rem",
+                  }}
                   aria-hidden="true"
                 />
 
                 {/* Numero watermark */}
                 <span
-                  className="font-script italic absolute select-none pointer-events-none hidden md:block"
-                  style={{
-                    fontSize: "7rem",
-                    color: "rgba(201,169,110,0.08)",
-                    lineHeight: 1,
-                    top: "-1.5rem",
-                    right: "0",
-                    zIndex: 0,
-                  }}
+                  className="font-script italic select-none pointer-events-none block"
+                  style={{ fontSize: "2.8rem", color: "rgba(201,169,110,0.18)", lineHeight: 1, marginBottom: "0.1rem" }}
                   aria-hidden="true"
                 >
                   {p.num}
                 </span>
 
-                {/* Numero visible mobile */}
-                <p
-                  className="md:hidden font-body text-xs tracking-[0.2em] uppercase mb-3"
-                  style={{ color: "var(--gold)", opacity: 0.7 }}
-                >
-                  Paso {p.num}
-                </p>
-
-                <h3
-                  className="font-display font-bold text-white mb-3 relative z-10"
-                  style={{ fontSize: "1.2rem" }}
-                >
+                <h3 className="font-display font-bold text-white mb-2" style={{ fontSize: "1.15rem" }}>
                   {p.titulo}
                 </h3>
-                <p
-                  className="font-body text-sm leading-relaxed relative z-10"
-                  style={{ color: "rgba(248,245,240,0.55)" }}
-                >
+                <p className="font-body leading-relaxed" style={{ fontSize: "13px", color: "rgba(248,245,240,0.55)", lineHeight: 1.75 }}>
                   {p.descripcion}
                 </p>
               </div>
             ))}
           </div>
+
+          <div className="mt-10 reveal stagger-4">
+            <p className="font-body text-xs mb-4" style={{ color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em" }}>
+              Primera consulta por WhatsApp sin costo
+            </p>
+            <a
+              href="https://wa.me/56987605936"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between w-full font-body font-medium cursor-pointer transition-all duration-200 active:opacity-80"
+              style={{
+                border: "1px solid rgba(201,169,110,0.6)",
+                color: "var(--gold)",
+                padding: "14px 20px",
+                fontSize: "0.9rem",
+                minHeight: "44px",
+              }}
+            >
+              Escribirme por WhatsApp
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 reveal stagger-4">
-          <p className="font-body text-xs text-white/40 mb-5 tracking-wide">
-            Primera consulta por WhatsApp sin costo
-          </p>
-          <a
-            href="https://wa.me/56987605936"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 font-body font-medium px-10 py-4 cursor-pointer transition-all duration-200 hover:brightness-110"
-            style={{
-              border: "1.5px solid var(--gold)",
-              color: "var(--gold)",
-            }}
-          >
-            Escribirme ahora por WhatsApp
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
+        {/* DESKTOP — timeline horizontal */}
+        <div className="hidden md:block">
+          <div className="relative">
+            {/* Línea horizontal conectora */}
+            <div
+              className="absolute left-0 right-0"
+              style={{
+                height: "1px",
+                background: "linear-gradient(90deg, rgba(201,169,110,0.5), rgba(201,169,110,0.25), rgba(201,169,110,0.5))",
+                top: "0.55rem",
+              }}
+              aria-hidden="true"
+            />
+
+            <div className="grid grid-cols-3 gap-8">
+              {pasos.map((p, i) => (
+                <div key={p.num} className={`reveal stagger-${i + 1} relative pt-0`}>
+                  <div
+                    style={{ width: "10px", height: "10px", borderRadius: "50%", background: "var(--gold)", marginBottom: "1.5rem", position: "relative", zIndex: 1 }}
+                    aria-hidden="true"
+                  />
+                  <span
+                    className="font-script italic select-none pointer-events-none block"
+                    style={{ fontSize: "5rem", color: "rgba(201,169,110,0.1)", lineHeight: 1, position: "absolute", top: "-1rem", right: "0" }}
+                    aria-hidden="true"
+                  >
+                    {p.num}
+                  </span>
+                  <h3 className="font-display font-bold text-white mb-2 relative z-10" style={{ fontSize: "1.15rem" }}>
+                    {p.titulo}
+                  </h3>
+                  <p className="font-body text-sm leading-relaxed relative z-10" style={{ color: "rgba(248,245,240,0.52)" }}>
+                    {p.descripcion}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-14 reveal stagger-4">
+            <p className="font-body text-xs mb-4" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Primera consulta por WhatsApp sin costo
+            </p>
+            <a
+              href="https://wa.me/56987605936"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 font-body font-medium cursor-pointer transition-all duration-200 hover:brightness-110"
+              style={{ border: "1.5px solid var(--gold)", color: "var(--gold)", padding: "14px 32px", fontSize: "0.9rem" }}
+            >
+              Escribirme ahora por WhatsApp
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>

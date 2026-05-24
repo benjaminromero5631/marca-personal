@@ -6,143 +6,100 @@ export default function Contacto() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
-            e.target.querySelectorAll(".gold-line-short").forEach((el) => el.classList.add("visible"));
-          }
-        }),
-      { threshold: 0.12 }
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+          e.target.querySelectorAll(".gold-line-short").forEach((el) => el.classList.add("visible"));
+        }
+      }),
+      { threshold: 0.1 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="contacto" className="relative overflow-hidden" style={{ padding: "9rem 0 8rem" }} ref={sectionRef}>
-      {/* Fondo */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{ background: "linear-gradient(135deg, var(--navy) 0%, #162B60 100%)" }}
-        aria-hidden="true"
-      />
-
-      {/* Patron puntillado sutil */}
-      <div
-        className="absolute inset-0 z-5 pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(201,169,110,0.08) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Watermark nombre — muy sutil */}
-      <div
-        className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none overflow-hidden"
-        aria-hidden="true"
-      >
-        <span
-          className="font-script italic whitespace-nowrap"
-          style={{ fontSize: "clamp(3rem, 9vw, 7rem)", color: "rgba(201,169,110,0.04)", lineHeight: 1 }}
-        >
-          Francesca Valdivieso Montero
-        </span>
-      </div>
-
-      {/* Contenido */}
-      <div className="relative z-20 max-w-4xl mx-auto px-6">
+    <section
+      id="contacto"
+      style={{ background: "var(--cream)", padding: "5rem 0 6rem" }}
+      ref={sectionRef}
+    >
+      <div className="max-w-2xl mx-auto px-5 md:px-6">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="font-body text-xs tracking-[0.3em] uppercase mb-4 reveal stagger-1" style={{ color: "var(--gold)" }}>
+        <div className="mb-8 reveal stagger-1">
+          <p className="font-body text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "var(--gold)" }}>
             Contacto
           </p>
           <h2
-            className="font-display font-bold text-white mb-5 reveal stagger-2"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", lineHeight: 1.15 }}
+            className="font-display font-bold mb-4"
+            style={{ fontSize: "clamp(2rem, 8vw, 3rem)", color: "var(--navy)", lineHeight: 1.1 }}
           >
             ¿Necesitas orientación legal?
           </h2>
-          <div className="gold-line-short mx-auto mb-6" />
+          <div className="gold-line-short mb-5" />
           <p
-            className="font-body font-light leading-relaxed reveal stagger-3"
-            style={{ color: "rgba(248,245,240,0.6)", fontSize: "1.05rem", maxWidth: "480px", margin: "0 auto" }}
+            className="font-body font-light leading-relaxed"
+            style={{ fontSize: "15px", color: "var(--muted)", lineHeight: 1.8 }}
           >
             Agenda tu asesoría online hoy. Te respondo con la
             seriedad y cercanía que tu caso merece.
           </p>
         </div>
 
-        {/* Contactos — layout horizontal sin cajas de color */}
-        <div
-          className="grid sm:grid-cols-2 gap-0 reveal stagger-3"
-          style={{ borderTop: "1px solid rgba(201,169,110,0.2)", borderBottom: "1px solid rgba(201,169,110,0.2)" }}
-        >
-          {/* WhatsApp — navy con acento dorado, NO verde */}
+        {/* Botones de contacto — apilados verticalmente, full-width */}
+        <div className="flex flex-col gap-3 reveal stagger-2">
+
+          {/* WhatsApp — navy, NO verde */}
           <a
             href="https://wa.me/56987605936"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-5 cursor-pointer transition-all duration-300 hover:bg-white/5"
+            className="flex items-center gap-4 cursor-pointer transition-all duration-200 hover:brightness-110 active:brightness-90"
             style={{
-              padding: "2.5rem",
-              borderRight: "1px solid rgba(201,169,110,0.15)",
+              background: "var(--navy)",
+              color: "white",
+              padding: "18px 20px",
+              minHeight: "64px",
+              textDecoration: "none",
             }}
             aria-label="Contactar por WhatsApp al +56 9 8760 5936"
           >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 20 20"
-              fill="none"
-              className="flex-shrink-0 transition-transform duration-200 group-hover:scale-110"
-              style={{ color: "var(--gold)" }}
-              stroke="currentColor"
-              strokeWidth="1.4"
-              aria-hidden="true"
-            >
-              <path d="M10 1.5C5.3 1.5 1.5 5.3 1.5 10c0 1.5.4 2.9 1.1 4.1L1.5 18.5l4.5-1.1c1.2.6 2.5 1 4 1 4.7 0 8.5-3.8 8.5-8.5S14.7 1.5 10 1.5zM14 12.8c-.2.5-.9.9-1.5 1-.4.1-.9.1-2.7-.6-2.3-.8-3.7-3.1-3.8-3.3-.1-.2-.9-1.2-.9-2.3 0-1.1.6-1.6.8-1.8.2-.2.5-.3.7-.3h.5c.2 0 .4.1.5.4.2.5.7 1.7.8 1.8.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.1-.3.3-.4.4-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1.8.7 1.4.9 1.7 1 .3.1.5 0 .6-.1.2-.2.6-.7.8-.9.2-.3.4-.2.6-.1.3.1 1.7.8 2 .9.3.1.5.2.6.3.1.3.1.9-.1 1.4z"/>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style={{ flexShrink: 0, color: "var(--gold)" }} aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
             </svg>
             <div>
-              <p className="font-body text-xs uppercase tracking-[0.15em] mb-1" style={{ color: "rgba(255,255,255,0.4)" }}>
+              <p className="font-body text-xs uppercase tracking-[0.15em] mb-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>
                 WhatsApp
               </p>
-              <p className="font-display font-bold text-white" style={{ fontSize: "1.2rem" }}>
+              <p className="font-display font-bold" style={{ fontSize: "1.1rem" }}>
                 +56 9 8760 5936
               </p>
             </div>
           </a>
 
-          {/* Email */}
+          {/* Email — outlined navy */}
           <a
             href="mailto:abogada.valdivieso.montero@gmail.com"
-            className="group flex items-center gap-5 cursor-pointer transition-all duration-300 hover:bg-white/5"
-            style={{ padding: "2.5rem" }}
+            className="flex items-center gap-4 cursor-pointer transition-all duration-200 hover:bg-navy/5 active:opacity-80"
+            style={{
+              border: "1.5px solid var(--navy)",
+              color: "var(--charcoal)",
+              padding: "18px 20px",
+              minHeight: "64px",
+              textDecoration: "none",
+            }}
             aria-label="Enviar email a abogada.valdivieso.montero@gmail.com"
           >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="flex-shrink-0 transition-transform duration-200 group-hover:scale-110"
-              style={{ color: "var(--gold)" }}
-              aria-hidden="true"
-            >
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, color: "var(--navy)" }} aria-hidden="true">
               <rect x="2" y="4" width="18" height="14" rx="2"/>
               <path d="M2 7l9 6 9-6"/>
             </svg>
             <div className="min-w-0">
-              <p className="font-body text-xs uppercase tracking-[0.15em] mb-1" style={{ color: "rgba(255,255,255,0.4)" }}>
+              <p className="font-body text-xs uppercase tracking-[0.15em] mb-0.5" style={{ color: "var(--muted)" }}>
                 Email
               </p>
-              <p className="font-body text-sm text-white truncate">
+              <p className="font-body text-sm truncate" style={{ color: "var(--charcoal)" }}>
                 abogada.valdivieso.montero@gmail.com
               </p>
             </div>
@@ -150,9 +107,9 @@ export default function Contacto() {
         </div>
 
         {/* Nota confidencialidad */}
-        <div className="text-center mt-10 reveal stagger-4">
-          <p className="font-body text-xs" style={{ color: "rgba(255,255,255,0.3)", letterSpacing: "0.05em" }}>
-            Información tratada con absoluta confidencialidad
+        <div className="text-center mt-7 reveal stagger-3">
+          <p className="font-body text-xs" style={{ color: "var(--muted)", letterSpacing: "0.04em" }}>
+            🔒 Información tratada con absoluta confidencialidad
           </p>
         </div>
       </div>
