@@ -19,7 +19,7 @@ export default function Hero() {
         {/* Foto */}
         <div className="absolute inset-0">
           <Image
-            src="/images/francesca.png"
+            src="/images/abogada.png"
             alt="Francesca Valdivieso Montero, Abogada de Familia"
             fill
             priority
@@ -163,7 +163,7 @@ export default function Hero() {
         {/* Columna derecha — foto */}
         <div className="relative overflow-hidden">
           <Image
-            src="/images/francesca.png"
+            src="/images/abogada.png"
             alt="Francesca Valdivieso Montero, Abogada de Familia"
             fill
             priority

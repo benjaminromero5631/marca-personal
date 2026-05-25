@@ -62,7 +62,7 @@ export default function About() {
                   }}
                 >
                   <Image
-                    src="/images/francesca.png"
+                    src="/images/abogada.png"
                     alt="Francesca Valdivieso Montero, Abogada de Familia"
                     fill
                     sizes="(max-width: 768px) 0px, 40vw"
