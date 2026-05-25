@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const lineRef = useRef<HTMLDivElement>(null);
@@ -15,23 +16,16 @@ export default function Hero() {
       {/* ── MOBILE: foto full-width con texto overlay ── */}
       <div className="md:hidden relative" style={{ aspectRatio: "4/5" }}>
 
-        {/* Foto / Placeholder */}
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(160deg, #1B3268 0%, #0F1E4A 100%)" }}
-        >
-          {/* Nombre como watermark placeholder */}
-          <div
-            className="absolute inset-0 flex items-center justify-center overflow-hidden select-none pointer-events-none"
-            aria-hidden="true"
-          >
-            <span
-              className="font-script italic text-center leading-tight px-4"
-              style={{ fontSize: "clamp(2.5rem, 14vw, 5rem)", color: "rgba(201,169,110,0.08)", lineHeight: 1.1 }}
-            >
-              Francesca<br/>Valdivieso
-            </span>
-          </div>
+        {/* Foto */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/francesca.png"
+            alt="Francesca Valdivieso Montero, Abogada de Familia"
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center top" }}
+          />
         </div>
 
         {/* Overlay gradiente de abajo hacia arriba */}
@@ -167,19 +161,15 @@ export default function Hero() {
         </div>
 
         {/* Columna derecha — foto */}
-        <div className="relative overflow-hidden" style={{ background: "linear-gradient(160deg, #1B3268 0%, #0F1E4A 100%)" }}>
-          {/* Watermark placeholder */}
-          <div
-            className="absolute inset-0 flex items-center justify-center overflow-hidden select-none pointer-events-none"
-            aria-hidden="true"
-          >
-            <span
-              className="font-script italic text-center leading-tight px-8"
-              style={{ fontSize: "clamp(3rem, 8vw, 6rem)", color: "rgba(201,169,110,0.06)", lineHeight: 1.1 }}
-            >
-              Francesca<br/>Valdivieso
-            </span>
-          </div>
+        <div className="relative overflow-hidden">
+          <Image
+            src="/images/francesca.png"
+            alt="Francesca Valdivieso Montero, Abogada de Familia"
+            fill
+            priority
+            sizes="50vw"
+            style={{ objectFit: "cover", objectPosition: "center top" }}
+          />
           {/* Degradado lateral para fusionar con el texto */}
           <div
             className="absolute inset-y-0 left-0 w-24"

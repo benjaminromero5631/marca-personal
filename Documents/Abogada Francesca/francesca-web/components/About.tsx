@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const credenciales = [
   "Abogada de Familia",
@@ -54,17 +55,19 @@ export default function About() {
                 </span>
                 <div
                   className="relative z-10 overflow-hidden"
-                  style={{ aspectRatio: "4/5", background: "linear-gradient(160deg, #1B3268 0%, #0F1E4A 100%)" }}
+                  style={{
+                    aspectRatio: "4/5",
+                    outline: "2px solid var(--gold)",
+                    outlineOffset: "6px",
+                  }}
                 >
-                  <div className="w-full h-full flex flex-col items-center justify-end pb-10">
-                    <svg width="60" height="90" viewBox="0 0 80 120" fill="none" className="opacity-10" aria-hidden="true">
-                      <circle cx="40" cy="30" r="22" fill="white"/>
-                      <path d="M0 120 C0 80 20 60 40 60 C60 60 80 80 80 120" fill="white"/>
-                    </svg>
-                    <p className="font-script italic text-center mt-3 px-4" style={{ color: "rgba(232,213,176,0.2)", fontSize: "0.7rem" }}>
-                      Fotografía próximamente
-                    </p>
-                  </div>
+                  <Image
+                    src="/images/francesca.png"
+                    alt="Francesca Valdivieso Montero, Abogada de Familia"
+                    fill
+                    sizes="(max-width: 768px) 0px, 40vw"
+                    style={{ objectFit: "cover", objectPosition: "center top" }}
+                  />
                 </div>
               </div>
             </div>
