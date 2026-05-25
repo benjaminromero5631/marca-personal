@@ -28,7 +28,7 @@ export default function About() {
   return (
     <section
       id="sobre-mi"
-      style={{ background: "var(--cream)", padding: "5rem 0" }}
+      style={{ background: "#ffffff", padding: "5rem 0" }}
       ref={sectionRef}
     >
       <div className="max-w-6xl mx-auto px-5 md:px-6">

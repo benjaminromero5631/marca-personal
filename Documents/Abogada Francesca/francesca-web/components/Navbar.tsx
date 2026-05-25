@@ -88,13 +88,21 @@ export default function Navbar() {
               </Link>
             ))}
             <a
+              href="tel:+56987605936"
+              className="font-body text-sm cursor-pointer transition-colors duration-200 hover:text-gold"
+              style={{ color: "rgba(248,245,240,0.55)" }}
+              aria-label="Llamar al +56 9 8760 5936"
+            >
+              +56 9 8760 5936
+            </a>
+            <a
               href="https://wa.me/56987605936"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-sm font-medium px-5 py-2.5 cursor-pointer transition-all duration-200 hover:brightness-110"
+              className="font-body text-sm font-semibold px-5 py-2.5 cursor-pointer transition-all duration-200 hover:brightness-110"
               style={{ background: "var(--gold)", color: "var(--navy)" }}
             >
-              Agendar Asesoría
+              WhatsApp →
             </a>
           </div>
 

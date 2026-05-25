@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const testimonios = [
   {
@@ -38,7 +38,6 @@ function Stars() {
 
 export default function Testimonios() {
   const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,150 +51,47 @@ export default function Testimonios() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const t = setInterval(() => setActive((prev) => (prev + 1) % testimonios.length), 5500);
-    return () => clearInterval(t);
-  }, []);
-
   return (
-    <section
-      ref={ref}
-      style={{ background: "var(--cream)", padding: "5rem 0" }}
-      aria-label="Testimonios de clientes"
-    >
+    <section ref={ref} style={{ background: "var(--cream)", padding: "5rem 0" }} aria-label="Testimonios de clientes">
       <div className="max-w-6xl mx-auto px-5 md:px-6">
 
-        {/* Header */}
-        <div className="mb-8 reveal stagger-1">
-          <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--gold)" }}>
+        <div className="reveal stagger-1" style={{ marginBottom: "2.5rem" }}>
+          <p className="font-body uppercase tracking-[0.25em]" style={{ fontSize: "11px", color: "var(--gold)", marginBottom: "0.5rem" }}>
             Testimonios
           </p>
-          <h2
-            className="font-display font-bold"
-            style={{ fontSize: "clamp(1.8rem, 6vw, 2.6rem)", color: "var(--navy)", lineHeight: 1.1 }}
-          >
+          <h2 className="font-serif font-bold" style={{ fontSize: "clamp(1.8rem, 6vw, 2.6rem)", color: "var(--navy)", lineHeight: 1.1 }}>
             Lo que dicen mis clientes
           </h2>
         </div>
 
-        {/* MÓVIL — card activa + puntos */}
-        <div className="md:hidden reveal stagger-2">
-          <div
-            style={{
-              background: "#ffffff",
-              padding: "1.5rem",
-              boxShadow: "0 2px 20px rgba(0,0,0,0.06)",
-            }}
-          >
-            <Stars />
-            <p
-              className="font-script italic leading-relaxed mb-5"
-              style={{ fontSize: "1.05rem", color: "var(--charcoal)", lineHeight: 1.7 }}
-            >
-              &ldquo;{testimonios[active].texto}&rdquo;
-            </p>
-            <div style={{ borderTop: "1px solid rgba(201,169,110,0.25)", paddingTop: "0.9rem" }}>
-              <p className="font-body font-medium" style={{ fontSize: "13px", color: "var(--charcoal)" }}>
-                {testimonios[active].nombre}
-              </p>
-              <p className="font-body" style={{ fontSize: "12px", color: "var(--muted)", marginTop: "2px" }}>
-                {testimonios[active].caso}
-              </p>
-            </div>
-          </div>
-
-          {/* Puntos de navegación */}
-          <div className="flex items-center justify-center gap-2 mt-5" role="tablist" aria-label="Testimonios">
-            {testimonios.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                role="tab"
-                aria-selected={active === i}
-                aria-label={`Testimonio ${i + 1}`}
-                className="cursor-pointer transition-all duration-300"
-                style={{
-                  width: active === i ? "20px" : "7px",
-                  height: "7px",
-                  borderRadius: "4px",
-                  background: active === i ? "var(--gold)" : "rgba(15,30,74,0.18)",
-                  border: "none",
-                  padding: 0,
-                  minWidth: 0,
-                  minHeight: 0,
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* DESKTOP — layout asimétrico */}
-        <div className="hidden md:grid md:grid-cols-[1fr_2fr] gap-16 xl:gap-24 items-start">
-          <div className="reveal stagger-1">
+        <div className="grid md:grid-cols-2 gap-5">
+          {testimonios.map((t, i) => (
             <div
-              className="select-none hidden lg:block"
-              style={{ fontSize: "9rem", color: "rgba(201,169,110,0.07)", lineHeight: 0.7, fontFamily: "Georgia, serif" }}
-              aria-hidden="true"
+              key={t.nombre}
+              className={`reveal stagger-${i + 2}`}
+              style={{
+                background: "#ffffff",
+                borderRadius: "8px",
+                padding: "1.5rem",
+                boxShadow: "0 2px 16px rgba(15,30,74,0.06)",
+              }}
             >
-              &ldquo;
-            </div>
-            <div className="flex items-center gap-4 mt-6">
-              <button
-                onClick={() => setActive((prev) => (prev - 1 + testimonios.length) % testimonios.length)}
-                aria-label="Anterior"
-                style={{ background: "none", border: "none", color: "var(--muted)", fontSize: "1.2rem", cursor: "pointer", padding: 0, minWidth: "44px", minHeight: "44px" }}
-              >←</button>
-              <span className="font-body text-xs" style={{ color: "var(--muted)" }}>
-                {active + 1} / {testimonios.length}
-              </span>
-              <button
-                onClick={() => setActive((prev) => (prev + 1) % testimonios.length)}
-                aria-label="Siguiente"
-                style={{ background: "none", border: "none", color: "var(--muted)", fontSize: "1.2rem", cursor: "pointer", padding: 0, minWidth: "44px", minHeight: "44px" }}
-              >→</button>
-            </div>
-          </div>
-
-          <div className="reveal stagger-2">
-            <Stars />
-            <p
-              className="font-script italic leading-relaxed mb-6"
-              style={{ fontSize: "clamp(1.1rem, 2vw, 1.3rem)", color: "var(--charcoal)", lineHeight: 1.7 }}
-            >
-              &ldquo;{testimonios[active].texto}&rdquo;
-            </p>
-            <div style={{ borderTop: "1px solid rgba(201,169,110,0.3)", paddingTop: "1rem" }}>
-              <p className="font-body font-medium text-sm" style={{ color: "var(--charcoal)" }}>
-                {testimonios[active].nombre}
+              <Stars />
+              <p
+                className="font-script italic leading-relaxed"
+                style={{ fontSize: "17px", color: "var(--charcoal)", lineHeight: 1.7, marginBottom: "1.25rem" }}
+              >
+                &ldquo;{t.texto}&rdquo;
               </p>
-              <p className="font-body text-xs mt-0.5" style={{ color: "var(--muted)" }}>
-                {testimonios[active].caso}
+              <div style={{ borderTop: "1px solid var(--gold)", paddingTop: "0.75rem", width: "24px" }} />
+              <p className="font-body font-semibold" style={{ fontSize: "13px", color: "var(--navy)", marginTop: "0.75rem" }}>
+                {t.nombre}
+              </p>
+              <p className="font-body font-light" style={{ fontSize: "12px", color: "var(--muted)", marginTop: "2px" }}>
+                {t.caso}
               </p>
             </div>
-            <div className="mt-6 space-y-0">
-              {testimonios.map((item, i) => i !== active && (
-                <button
-                  key={item.nombre}
-                  onClick={() => setActive(i)}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    textAlign: "left",
-                    padding: "0.75rem 0",
-                    background: "none",
-                    border: "none",
-                    borderTop: "1px solid rgba(15,30,74,0.07)",
-                    opacity: 0.4,
-                    cursor: "pointer",
-                  }}
-                  aria-label={`Ver testimonio de ${item.nombre}`}
-                >
-                  <p className="font-body text-xs font-medium" style={{ color: "var(--navy)" }}>{item.nombre}</p>
-                  <p className="font-body" style={{ fontSize: "11px", color: "var(--muted)" }}>{item.caso}</p>
-                </button>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
