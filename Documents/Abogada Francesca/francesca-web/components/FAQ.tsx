@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const faqs = [
   {
     pregunta: "¿Cuánto cuesta una asesoría?",
-    respuesta: "El valor de la asesoría varía según la complejidad del caso. La primera consulta por WhatsApp es sin costo — cuéntame tu situación y te informo con claridad antes de agendar.",
+    respuesta: "El valor de la asesoría varía según la complejidad del caso. Cotiza tu asesoría por WhatsApp — cuéntame tu situación y te informo con claridad antes de agendar.",
   },
   {
     pregunta: "¿Puedo obtener asesoría desde cualquier región de Chile?",

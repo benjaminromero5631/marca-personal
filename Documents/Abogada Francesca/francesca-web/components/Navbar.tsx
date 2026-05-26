@@ -68,7 +68,7 @@ export default function Navbar() {
               <line x1="14" y1="10" x2="14" y2="25" stroke="#C9A96E" strokeWidth="1.2"/>
             </svg>
             <span className="font-script italic" style={{ fontSize: "1.1rem", color: "#E8D5B0" }}>
-              Francesca Valdivieso
+              Francesca Valdivieso Montero
             </span>
           </Link>
 

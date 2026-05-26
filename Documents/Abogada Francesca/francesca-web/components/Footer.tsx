@@ -32,7 +32,7 @@ export default function Footer() {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.625rem", marginBottom: "1.5rem" }}>
           <ScalesIcon />
           <span className="font-script italic" style={{ fontSize: "1.15rem", color: "#E8D5B0" }}>
-            Francesca Valdivieso
+            Francesca Valdivieso Montero
           </span>
           <span className="font-body" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)" }}>
             · Abogada de Familia

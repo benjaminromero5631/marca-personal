@@ -84,7 +84,7 @@ export default function About() {
               className="font-script italic mb-1 stagger-2"
               style={{ fontSize: "clamp(2.2rem, 8vw, 3.2rem)", color: "var(--charcoal)", lineHeight: 1.05 }}
             >
-              Francesca Valdivieso
+              Francesca Valdivieso Montero
             </h2>
             <p className="font-body tracking-[0.15em] uppercase mb-5 stagger-2" style={{ fontSize: "11px", color: "var(--muted)" }}>
               Montero

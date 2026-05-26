@@ -99,7 +99,7 @@ export default function ComoFunciona() {
 
           <div className="mt-10 reveal stagger-4">
             <p className="font-body text-xs mb-4" style={{ color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em" }}>
-              Primera consulta por WhatsApp sin costo
+              Cotiza tu asesoría por WhatsApp
             </p>
             <a
               href="https://wa.me/56987605936"
@@ -163,7 +163,7 @@ export default function ComoFunciona() {
 
           <div className="mt-14 reveal stagger-4">
             <p className="font-body text-xs mb-4" style={{ color: "rgba(255,255,255,0.35)" }}>
-              Primera consulta por WhatsApp sin costo
+              Cotiza tu asesoría por WhatsApp
             </p>
             <a
               href="https://wa.me/56987605936"

@@ -1,7 +1,15 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const situaciones = [
+type Situacion = { emoji: string; titulo: string; descripcion: string; destacada?: boolean };
+
+const situaciones: Situacion[] = [
+  {
+    emoji: "⚠️",
+    titulo: "Me hicieron una denuncia falsa",
+    descripcion: "Te defiendo ante denuncias falsas de VIF u otras acusaciones que afecten tu nombre y tu familia.",
+    destacada: true,
+  },
   {
     emoji: "💸",
     titulo: "No me pagan la pensión",
@@ -34,13 +42,14 @@ const situaciones = [
   },
 ];
 
-function Card({ s }: { s: (typeof situaciones)[0] }) {
+function Card({ s }: { s: Situacion }) {
   return (
     <div
       className="reveal"
       style={{
-        background: "#EFEDE9",
-        borderLeft: "4px solid var(--gold)",
+        background: s.destacada ? "rgba(15,30,74,0.04)" : "#EFEDE9",
+        border: s.destacada ? "1.5px solid var(--gold)" : undefined,
+        borderLeft: s.destacada ? undefined : "4px solid var(--gold)",
         borderRadius: "6px",
         padding: "1.25rem",
         boxShadow: "0 2px 12px rgba(15,30,74,0.06)",
@@ -49,6 +58,21 @@ function Card({ s }: { s: (typeof situaciones)[0] }) {
         gap: "0.5rem",
       }}
     >
+      {s.destacada && (
+        <span style={{
+          alignSelf: "flex-start",
+          background: "var(--navy)",
+          color: "white",
+          fontFamily: "var(--font-body)",
+          fontSize: "11px",
+          fontWeight: 500,
+          borderRadius: "20px",
+          padding: "2px 8px",
+          marginBottom: "0.25rem",
+        }}>
+          Área principal
+        </span>
+      )}
       <span style={{ fontSize: "2rem", lineHeight: 1 }} aria-hidden="true">{s.emoji}</span>
       <p className="font-body font-bold" style={{ fontSize: "16px", color: "var(--navy)", lineHeight: 1.3 }}>
         {s.titulo}
