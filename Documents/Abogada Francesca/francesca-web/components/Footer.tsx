@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const links = [
   { href: "#inicio",    label: "Inicio" },
@@ -28,7 +29,19 @@ export default function Footer() {
     <footer style={{ background: "#0A1535", padding: "3rem 1.5rem" }}>
       <div style={{ maxWidth: "1152px", margin: "0 auto", textAlign: "center" }}>
 
-        {/* Logo */}
+        {/* Logo imagen */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.25rem" }}>
+          <Image
+            src="/images/logo.francesca.jpeg"
+            alt="Logo Francesca Valdivieso Montero"
+            width={120}
+            height={120}
+            style={{ opacity: 0.85, objectFit: "contain", maxWidth: "120px" }}
+            sizes="120px"
+          />
+        </div>
+
+        {/* Nombre + ícono */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.625rem", marginBottom: "1.5rem" }}>
           <ScalesIcon />
           <span className="font-script italic" style={{ fontSize: "1.15rem", color: "#E8D5B0" }}>

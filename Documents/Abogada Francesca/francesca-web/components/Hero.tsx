@@ -110,6 +110,22 @@ export default function Hero() {
             aria-hidden="true"
           />
 
+          {/* Logo marca de agua — solo desktop */}
+          <div
+            className="absolute bottom-8 right-8 pointer-events-none"
+            style={{ zIndex: 1 }}
+            aria-hidden="true"
+          >
+            <Image
+              src="/images/logo.francesca.jpeg"
+              alt=""
+              width={80}
+              height={80}
+              style={{ opacity: 0.12, objectFit: "contain" }}
+              sizes="80px"
+            />
+          </div>
+
           <div className="relative z-10" style={{ maxWidth: "520px" }}>
             <div className="flex items-center gap-4 mb-8">
               <span className="font-script italic" style={{ fontSize: "0.8rem", color: "rgba(201,169,110,0.5)" }} aria-hidden="true">01</span>

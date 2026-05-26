@@ -9,6 +9,7 @@ const servicios = [
   { titulo: "Divorcios",                    descripcion: "Te guío en cada etapa del proceso de divorcio con claridad, discreción y compromiso." },
   { titulo: "Violencia Intrafamiliar",      descripcion: "Protejo tu integridad con urgencia y sensibilidad. Tu seguridad es la prioridad." },
   { titulo: "Vulneración de Derechos",      descripcion: "Defiendo los derechos de niños y adolescentes ante situaciones de riesgo o vulneración." },
+  { titulo: "Causas Civiles",               descripcion: "Represento y asesoro en causas civiles con el mismo rigor y dedicación que cada caso merece." },
 ];
 
 /* Acordeon item — usado en móvil */

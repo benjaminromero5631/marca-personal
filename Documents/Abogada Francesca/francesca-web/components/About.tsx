@@ -6,7 +6,9 @@ const credenciales = [
   "Abogada de Familia",
   "Magíster en Derecho de Familia e Intervención Familiar",
   "Perito",
-  "Asesorías online disponibles a todo Chile",
+  "Diplomada en Derecho de Familia",
+  "Diplomada en Actualización Profesional en Derecho",
+  "Diplomada en Marco Jurídico para la Intervención Familiar",
 ];
 
 export default function About() {
@@ -86,11 +88,7 @@ export default function About() {
             >
               Francesca Valdivieso Montero
             </h2>
-            <p className="font-body tracking-[0.15em] uppercase mb-5 stagger-2" style={{ fontSize: "11px", color: "var(--muted)" }}>
-              Montero
-            </p>
-
-            <div className="gold-line-short mb-7" />
+            <div className="gold-line-short mb-7" style={{ marginTop: "0.75rem" }} />
 
             {/* Quote sin caja */}
             <div
