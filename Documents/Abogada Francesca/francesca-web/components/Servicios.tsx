@@ -10,6 +10,7 @@ const servicios = [
   { titulo: "Violencia Intrafamiliar",      descripcion: "Protejo tu integridad con urgencia y sensibilidad. Tu seguridad es la prioridad." },
   { titulo: "Vulneración de Derechos",      descripcion: "Defiendo los derechos de niños y adolescentes ante situaciones de riesgo o vulneración." },
   { titulo: "Causas Civiles",               descripcion: "Represento y asesoro en causas civiles con el mismo rigor y dedicación que cada caso merece." },
+  { titulo: "Causas Penales",              descripcion: "Maltrato habitual, Violencia intrafamiliar, Control de detención, Ley 20.000, Delitos contra la propiedad, Delitos contra la vida, entre otras." },
 ];
 
 /* Acordeon item — usado en móvil */
@@ -199,7 +200,7 @@ export default function Servicios() {
           <div className="lg:sticky lg:top-32 self-start reveal stagger-1">
             <p className="font-body text-sm leading-relaxed mb-8" style={{ color: "var(--muted)", maxWidth: "240px" }}>
               Atención integral en todas las materias del Derecho de Familia,
-              con enfoque humano y resultados concretos.
+              con enfoque humano y dedicación a cada caso.
             </p>
             <a
               href="https://wa.me/56987605936"

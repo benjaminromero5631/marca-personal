@@ -111,15 +111,20 @@ export default function About() {
               </p>
             </div>
 
-            <p
-              className="font-body leading-relaxed mb-7 stagger-3"
-              style={{ fontSize: "15px", color: "var(--muted)", maxWidth: "500px", lineHeight: 1.8 }}
-            >
-              Soy abogada especializada en Derecho de Familia, con formación de posgrado y
-              experiencia como perito. Me dedico a orientar y representar a personas que
-              enfrentan situaciones familiares complejas, con atención personalizada, cercana
-              y profesional.
-            </p>
+            <div className="mb-7 stagger-3 space-y-4" style={{ maxWidth: "500px" }}>
+              <p className="font-body leading-relaxed" style={{ fontSize: "15px", color: "var(--muted)", lineHeight: 1.8 }}>
+                Abogada especializada en Derecho de Familia, Magíster en Derecho de Familia e Intervención Familiar y Perito. Cuento con amplia experiencia en la asesoría y litigación de causas familiares, abordando materias como pensión de alimentos, cuidado personal, relación directa y regular, medidas de protección, violencia intrafamiliar y conflictos familiares de alta complejidad, destacando una trayectoria profesional marcada por la defensa técnica y estratégica de padres, resguardando siempre el interés superior de niños, niñas y adolescentes y el debido proceso.
+              </p>
+              <p className="font-body leading-relaxed" style={{ fontSize: "15px", color: "var(--muted)", lineHeight: 1.8 }}>
+                Mi ejercicio profesional se caracteriza por un enfoque técnico, humano y estratégico, centrado en la protección de los derechos de niños, niñas y adolescentes, así como en la búsqueda de soluciones jurídicas eficaces y respetuosas de la dignidad de las personas.
+              </p>
+              <p className="font-body leading-relaxed" style={{ fontSize: "15px", color: "var(--muted)", lineHeight: 1.8 }}>
+                Como perito, integro el análisis jurídico con una mirada probatoria especializada, aportando rigor técnico y solidez a los procesos judiciales.
+              </p>
+              <p className="font-body leading-relaxed" style={{ fontSize: "15px", color: "var(--muted)", lineHeight: 1.8 }}>
+                Me rigen valores como el compromiso, la ética profesional, la responsabilidad y la convicción de que el Derecho de Familia debe ejercerse con sensibilidad, excelencia y profundo respeto por quienes atraviesan situaciones familiares complejas.
+              </p>
+            </div>
 
             {/* Credenciales sin cajas */}
             <ul className="space-y-3 stagger-4">
