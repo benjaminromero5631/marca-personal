@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     pregunta: "¿Cuánto demora un juicio de pensión de alimentos?",
-    respuesta: "Depende de cada caso y tribunal, pero en general los procesos de pensión de alimentos tienen plazos definidos por ley. En la asesoría te explico los tiempos estimados para tu situación específica.",
+    respuesta: "Depende de cada caso y tribunal. En la asesoría te explico los tiempos estimados para tu situación específica.",
   },
   {
     pregunta: "¿Mis datos son confidenciales?",
